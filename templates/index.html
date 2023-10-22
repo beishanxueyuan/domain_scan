@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>资产收集</title>
+    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/app.js">
+    </script>
+    <style>
+
+
+/* 弹框样式 */
+    .modal {
+      display: none; /* 默认隐藏 */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    /* 按钮样式 */
+    .modal-buttons {
+      margin-top: 20px;
+    }
+    
+    .modal-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .modal-buttons button:hover {
+      background-color: #45a049;
+    }
+        .container {
+    position: relative;
+    text-align: center;
+    height: 60px;
+  }
+  .button-left {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .button-right {
+    left: 50%;
+    transform: translateX(50%);
+    margin-left: 10px; /* 负边距 */
+  }
+        .deleteBtn,.delete_listBtn {
+            padding: 10px 10px;
+            font-size:10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        img{width:300px; height:200px} 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .top-left-number {
+            position: absolute;
+            top: 10px; /* 调整垂直位置 */
+            left: 10px; /* 调整水平位置 */
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%; /* 使数字呈圆形 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-left-number">1</div>
+    <div class="container">
+        <a href="/"><button class="button button-left">信息收集</button></a>
+        <a href="/lookjs"><button class="button button-right">监控js</button></a>
+    </div>
+    <input type="text" id="inputField" placeholder="输入内容">
+    <br><br><script>
+        function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            // 关闭弹框
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+    </script>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>确认删除？</h2>
+            <p>确定要删除吗？此操作无法撤销。</p>
+            <div class="modal-buttons">
+                <button class="yesBtn">确定</button>
+                <button onclick="noBtn">取消</button>
+            </div>
+        </div>
+    </div>
+    <button id="insertBtn">插入</button>
+    <div id="resultDiv"></div>
+    <div class="pagination">
+        <button id="prevPage">上一页</button>
+        <span id="currentPage">1</span>
+        <button id="nextPage" onclick="loadNextPage();">下一页</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>资产收集</title>
+    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/app.js">
+    </script>
+    <style>
+        #back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  outline: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#back-button:hover {
+  background-color: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+        .message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: none;
+}
+        table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+table tfoot td {
+  font-weight: bold;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+        
+        img {
+            width: 300px;
+            height: 200px
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 800px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 10px;
+            font-size: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete_jsBtn,.slovedBtn {
+            padding: 10px 10px;
+            font-size:10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .top-left-number {
+            position: absolute;
+            top: 10px;
+            /* 调整垂直位置 */
+            left: 10px;
+            /* 调整水平位置 */
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            /* 使数字呈圆形 */
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/"><button id="back-button">返回</button></a>
+    <div class="message" id="messageBox"></div>
+    <h1>JS监控</h1>
+    <input type="text" id="inputField" placeholder="输入js路径"></br></br>
+    <input type="text" id="inputField2" placeholder="输入host">
+    <br><br>
+    <button id="insert_jsBtn">插入</button>
+    <br><br>
+    <div id="js_resultDiv"></div>
+    <br><br>
+    <div class="pagination">
+        <button id="prevPage">上一页</button>
+        <span id="currentPage">1</span>
+        <button id="nextPage" onclick="loadNextPage();">下一页</button>
+    </div>
+</body>
+<script>
+    // 获取消息框元素
+        var messageBox = document.getElementById('messageBox');
+
+        // 函数：显示消息
+        function showMessage(message) {
+            messageBox.innerText = message;
+            messageBox.style.display = 'block';
+        }
+</script>
+</html>

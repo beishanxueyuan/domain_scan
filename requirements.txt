@@ -1,0 +1,4 @@
+Flask
+APScheduler
+pysqlite3
+requests
