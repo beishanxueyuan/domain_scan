@@ -42,10 +42,10 @@ print(list(result))
 docker build -t domain_scan .
 ```
 ```
-docker run -d --name domain_scan -p 9992:9992 domain_scan
+docker run -d --name domain_scan -p 80:80 domain_scan
 ```
 
-访问9992端口
+访问80端口
 
 <img width="1414" alt="image" src="https://github.com/beishanxueyuan/domain_scan/assets/138347114/0ec66232-e7cf-41d9-848a-7d44c2d6f75e">
 
